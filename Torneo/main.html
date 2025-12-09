@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Torneo de preferencia — Would You Rather</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Torneo de preferencia</h1>
+      <div class="controls">
+        <div id="roundInfo" class="pill">Ronda 1 de 1</div>
+        <div id="remainingInfo" class="pill">Rondas restantes: 0</div>
+        <div id="status" class="pill">Cargando...</div>
+      </div>
+    </header>
+
+    <!-- WOULD YOU RATHER TOP AREA -->
+    <div class="topArea" id="topArea">
+      <div class="card" id="cardA"><img id="imgA" src="" alt="A"><div><div class="name" id="nameA">A</div><div class="sub" id="subA">Equipo A</div></div></div>
+      <div class="card" id="cardB"><img id="imgB" src="" alt="B"><div><div class="name" id="nameB">B</div><div class="sub" id="subB">Equipo B</div></div></div>
+    </div>
+
+    <div class="controls2">
+      <button id="restart">Reiniciar torneo</button>
+      <button id="export">Exportar JSON</button>
+      <select id="example" style="margin-left:auto">
+        <option value="">Ejemplos rápidos</option>
+        <option value="https://raw.githubusercontent.com/soportejemplo/assets/main/players-small.json">Ejemplo: 8</option>
+        <option value="https://raw.githubusercontent.com/soportejemplo/assets/main/players-odd.json">Ejemplo: 7</option>
+      </select>
+    </div>
+
+    <div class="map" id="map"></div>
+
+    <div id="exportBox" style="display:none;margin-top:12px">
+      <h3>Resultado</h3>
+      <pre id="exportData" style="background:#071426;padding:12px;border-radius:8px;color:#cfe9ff"></pre>
+    </div>
+  </div>
+
+<script src="main.js"></script>
+</body>
+</html>
