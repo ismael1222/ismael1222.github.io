@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+    <header>
+        <!--invisible header con Logo, y opciones-->
+        <img src="https://www3.animeflv.net/assets/animeflv/img/logo.png" alt="LOGO" class="NewLogo">
+        <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/browse">Buscar</a></li>
+        </ul>
+    </header>
+    <!-- Carrusel. Se reemplaza sus elementos con el hover de la seccion "Aniadidos recientemente" -->
+    <div class="Carrusel">
+        <img src="https://www3.animeflv.net/uploads/animes/covers/67.jpg" alt="">
+        <div id="info">
+            <h1>Titulo</h1>
+            <div id="tags">
+                <a href="#">Etiqueta1</a>
+                <a href="#">Etiqueta2</a>
+                <a href="#">Etiqueta3</a>
+                <a href="#">Etiqueta4</a>
+                <a href="#">Etiqueta5</a>
+                <a href="#">Etiqueta6</a>
+                <a href="#">Etiqueta7</a>
+                <a href="#">Etiqueta8</a>
+                <a href="#">Etiqueta9</a>
+                <a href="#">Etiqueta10</a>
+
+            </div>
+            <div id="desc">
+                <p>Descripcion aqui</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="titular" id="RecentAdded">
+        <h4>Añadidos recientemente</h4>
+        <!-- Aqui hay que poner cards. cuando se le hace hover a una, hay que tomar todito, y tirarlo para arriba. -->
+        <div class="cardContainer">
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+        </div>
+    </div>
+    <div class="titular" id="RecentChapters">
+        <h4>Ultimos capitulos</h4>
+        <div class="cardContainer">
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+        </div>
+    </div>
+    <div class="titular" id="Emision">
+        <h4>En emision</h4>
+        <div class="cardContainer">
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+        </div>
+    </div>
+    <div class="titular" id="Anio">
+        <h4>En emision</h4>
+        <div class="cardContainer">
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+        </div>
+    </div>
+    <div class="titular" id="Genero">
+        <h4> <label for="generos-anime">Mejores del genero</label>
+            <select id="generos-anime" name="generos">
+                <option value="accion">Acción</option>
+                <option value="artes-marciales">Artes Marciales</option>
+                <option value="aventuras">Aventuras</option>
+                <option value="carreras">Carreras</option>
+                <option value="ciencia-ficcion">Ciencia Ficción</option>
+                <option value="comedia">Comedia</option>
+                <option value="demencia">Demencia</option>
+                <option value="demonios">Demonios</option>
+                <option value="deportes">Deportes</option>
+                <option value="drama">Drama</option>
+                <option value="ecchi">Ecchi</option>
+                <option value="escolares">Escolares</option>
+                <option value="espacial">Espacial</option>
+                <option value="fantasia">Fantasía</option>
+                <option value="harem">Harem</option>
+                <option value="historico">Histórico</option>
+                <option value="infantil">Infantil</option>
+                <option value="josei">Josei</option>
+                <option value="juegos">Juegos</option>
+                <option value="magia">Magia</option>
+                <option value="mecha">Mecha</option>
+                <option value="militar">Militar</option>
+                <option value="misterio">Misterio</option>
+                <option value="musica">Música</option>
+                <option value="parodia">Parodia</option>
+                <option value="policia">Policía</option>
+                <option value="psicologico">Psicológico</option>
+                <option value="recuentos">Recuentos de la vida</option>
+                <option value="romance">Romance</option>
+                <option value="samurai">Samurai</option>
+                <option value="seinen">Seinen</option>
+                <option value="shoujo">Shoujo</option>
+                <option value="shounen">Shounen</option>
+                <option value="sobrenatural">Sobrenatural</option>
+                <option value="superpoderes">Superpoderes</option>
+                <option value="suspenso">Suspenso</option>
+                <option value="terror">Terror</option>
+                <option value="vampiros">Vampiros</option>
+                <option value="yaoi">Yaoi</option>
+                <option value="yuri">Yuri</option>
+            </select>
+        </h4>
+        <div class="cardContainer">
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+            <div class="card"></div>
+        </div>
+    </div>
+    <div class="random">
+        <h1>Random noise here</h1>
+    </div>
+</body>
+
+</html>
