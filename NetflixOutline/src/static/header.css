@@ -1,0 +1,36 @@
+header {
+    background-color: #141414;
+    padding-top: 14px;
+    padding-left: 48px;
+    display: flex;
+    z-index: 200;
+    width: 100vw;
+
+    img.NewLogo {
+        height: 35px;
+        width: auto;
+    }
+
+    ul {
+        display: flex;
+        margin: 8px;
+        padding-left: 35px;
+        height: 35px;
+
+        li a {
+            margin-right: 20px;
+            text-transform: capitalize;
+        }
+    }
+
+    a {
+        text-decoration: none;
+        font-family: sans-serif;
+        color: white;
+    }
+
+    ul {
+        list-style-type: none;
+        display: flex;
+    }
+}
