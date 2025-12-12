@@ -1,17 +1,3 @@
-
-
-
-
-Background #141414
-
-
-
-
-
-
-
-
-
 Filtro:
 
 * Type\[Película, anime, ova]
@@ -40,8 +26,13 @@ Sección 4 y 5: Mejores del año/género (dropdown, switch)
 
 Data: al hacer click en un anime, se muestra un popup con información, en formato vertical con scroll: foto del anime, el nombre, tags, otros animes (precuela, secueta, spin off, etc, lo que sea que tenga su metadata), sipnosis, y listado de episodios.
 
+Funciones necesarias:
+Clone body y delete original (one function)
 
-
+Grab template and load it. (one function with selector by html[ver,main,anime,404])
++ create card with elements (one function only)
+----------
+Paste over template (one per page)
 
 
 
