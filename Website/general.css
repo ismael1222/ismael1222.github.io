@@ -1,3 +1,8 @@
+:root {
+	--accent: rgb(238, 118, 124);
+	--accent-tame: rgba(229, 94, 101, 0.331);
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -6,15 +11,19 @@
 body {
 	background-color: #F8FAFC;
 	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	overflow-x: hidden;
 }
 
 a {
 	text-decoration: none;
 }
 
-
 header {
 	box-shadow: 0px -3px 20px rgba(0, 0, 0, 0.316);
+	position: sticky;
+	z-index: 101;
+	top: 0;
+	background-color: white;
 
 	.nav {
 		max-width: 1200px;
@@ -32,11 +41,6 @@ header {
 				margin-left: 30px;
 				display: flex;
 				align-items: center;
-
-				img.icon {
-					width: 26px;
-					margin-right: 10px;
-				}
 
 				a {
 					font-weight: 650;
@@ -64,7 +68,7 @@ header {
 					}
 
 					&:hover {
-						color: #E55E64;
+						color: var(--accent);
 
 						img {
 							transition-duration: 0.3s;
@@ -106,4 +110,10 @@ header {
 		}
 	}
 
+}
+
+img.icon {
+	width: 26px;
+	height: auto;
+	margin-right: 10px;
 }
