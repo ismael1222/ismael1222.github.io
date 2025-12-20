@@ -1,36 +1,34 @@
 document.addEventListener('DOMContentLoaded', () => {
-	let images = document.querySelectorAll("img.display");
-	let current = 0;
-	
-	// Asegurarnos de que la primera imagen sea visible al cargar
-	if (images.length > 0) {
-		images[current].classList.add('active');
-	}
-	
-	setInterval(() => {
-		if (images.length === 0) return;
-		
-		// Remueve la clase 'active' de la imagen actual
-		images[current].classList.remove('active');
-		images[current].classList.add('post');
-		
-		let previous = current;
-		
-		// Incrementa el índice
-		current++;
-		if (current >= images.length) {
-			current = 0;
-		}
-		
-		// Agrega 'active' a la nueva imagen (esto debe hacerse después de un pequeño delay)
-		setTimeout(() => {
-			images[current].classList.add('active');
-		}, 10);
-		
-		// Después de la transición, limpia la clase 'post' de la imagen anterior
-		setTimeout(() => {
-			images[previous].classList.remove('post');
-		}, 1000);
-		
-	}, 3000);
+    let slides = document.querySelectorAll(".slide-container");
+    let current = 0;
+    
+    // el primero tiene q ser visible
+    if (slides.length > 0) {
+        slides[current].classList.add('active');
+    }
+    
+    setInterval(() => {
+        if (slides.length === 0) return;
+        
+        // inicia quitando pq ya se puso de antes
+        slides[current].classList.remove('active');
+        slides[current].classList.add('post');
+        
+        let previous = current;
+        
+        // next until max (0)
+        current++;
+		current=current%slides.length;
+        
+        // Activa el nuevo slide
+        setTimeout(() => {
+            slides[current].classList.add('active');
+        }, 10);
+        
+        // reiniciar salido
+        setTimeout(() => {
+            slides[previous].classList.remove('post');
+        }, 1000);
+        
+    }, 5000); // Aumenté a 4 segundos para dar tiempo a leer el texto
 });

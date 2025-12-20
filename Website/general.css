@@ -33,7 +33,6 @@ header {
 		margin: 0 auto;
 		justify-content: space-between;
 
-
 		.nav-links {
 			display: flex;
 
@@ -110,6 +109,11 @@ header {
 		}
 	}
 
+}
+@media (max-width: 600px) {
+	header .nav .nav-links .element a p{
+		display: none;
+	}
 }
 
 img.icon {

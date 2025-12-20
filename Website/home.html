@@ -14,7 +14,7 @@
         <header>
             <div class="nav">
                 <a class="logo" href="./home.html">
-                    <div class="logo-icon"><img src="./Logo.svg" alt="Logo"></div>
+                    <div class="logo-icon"><img src="./logo.svg" alt="Logo"></div>
                     <div>SLD Creaciones
                         <div class="sub">Confecciones de telas en general</div>
                     </div>
@@ -22,14 +22,14 @@
                 <div class="nav-links">
                     <div class="element">
                         <a href="./catalogo.html">
-                            <img src="Ropa.svg" alt="Catalogo" class="icon">
-                            Catalogo
+                            <img src="ropa.svg" alt="Catalogo" class="icon">
+                            <p>Catalogo</p>
                         </a>
                     </div>
                     <div class="element">
                         <a href="./contact.html">
                             <img src="Whatsapp.svg" alt="Whatsapp" class="icon">
-                            Whatsapp
+                            <p>Whatsapp</p>
                         </a>
                     </div>
                 </div>
@@ -38,21 +38,75 @@
         <main>
             <div class="legend">Envios a todo el uruguay</div>
 
-            <div class="carrusel">
-                <img class="display active" src="https://fpoimg.com/2401x901" alt="">
-                <img class="display" src="https://fpoimg.com/2402x902" alt="">
-                <img class="display" src="https://fpoimg.com/2403x903" alt="">
-                <img class="display" src="https://fpoimg.com/2404x904" alt="">
-				<div class="info">
-                    <p class="title">Te gusta?</p>
-                    <a class="info" href="./catalogo.html">
-                        <img src="Ropa.svg" alt="Catalogo" class="icon">
-                        Ver mas en el catalogo</a>
+            <div
+                class="carrusel">
+                <!-- Slide 1 -->
+                <div class="slide-container active">
+                    <div class="image-wrapper">
+                        <img class="display" src="./Imagenes/Bolso.jpeg" alt="Producto 1">
+                        <div class="image-blur" style="background-image: url('https://picsum.photos/1200/800?random=1');"></div>
+                    </div>
+                    <div class="info">
+                        <p class="title">Bolsos y Accesorios</p>
+                        <p class="description">Encuentra el complemento perfecto para ti</p>
+                        <a class="info-link" href="./catalogo.html">
+                            <img src="ropa.svg" alt="Catalogo" class="icon">
+                            Ver en el catalogo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="slide-container">
+                    <div class="image-wrapper">
+                        <img class="display" src="./Imagenes/Cama.jpeg" alt="Producto 2">
+                        <div class="image-blur" style="background-image: url('./Imagenes/Cama.jpeg');"></div>
+                    </div>
+                    <div class="info">
+                        <p class="title">Ropa de Cama</p>
+                        <p class="description">Diseños cómodos y elegantes para tu descanso</p>
+                        <a class="info-link" href="./catalogo.html">
+                            <img src="ropa.svg" alt="Catalogo" class="icon">
+                            Ver en el catalogo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="slide-container">
+                    <div class="image-wrapper">
+                        <img class="display" src="./Imagenes/Gorros.jpeg" alt="Producto 3">
+                        <div class="image-blur" style="background-image: url('./Imagenes/Gorros.jpeg');"></div>
+                    </div>
+                    <div class="info">
+                        <p class="title">Accesorios de temporada</p>
+                        <p class="description">Protege tu estilo en cualquier época del año</p>
+                        <a class="info-link" href="./catalogo.html">
+                            <img src="ropa.svg" alt="Catalogo" class="icon">
+                            Ver en el catalogo
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="slide-container">
+                    <div class="image-wrapper">
+                        <img class="display" src="./Imagenes/Mantel.jpeg" alt="Producto 4">
+                        <div class="image-blur" style="background-image: url('./Imagenes/Mantel.jpeg');"></div>
+                    </div>
+                    <div class="info">
+                        <p class="title">Textiles para el Hogar</p>
+                        <p class="description">Decora tu mesa con nuestros diseños exclusivos</p>
+                        <a class="info-link" href="./catalogo.html">
+                            <img src="ropa.svg" alt="Catalogo" class="icon">
+                            Ver en el catalogo
+                        </a>
+                    </div>
                 </div>
             </div>
         </main>
         <footer></footer>
-		<script src="home.js"></script>
+        <script src="home.js"></script>
     </body>
 
 </html>
