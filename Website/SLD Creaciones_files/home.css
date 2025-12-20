@@ -1,11 +1,5 @@
 main {
-	padding-bottom: 200px;
-
-
-	>div {
-		padding: 45px 60px;
-	}
-
+	padding-bottom:200px;
 	.legend {
 		position: absolute;
 		color: var(--accent);
@@ -159,16 +153,8 @@ main {
 		}
 	}
 
-	.sub {
-		color: rgb(81, 81, 81);
-		font-weight: 600;
-
-
-	}
-
 	#hacemos {
-
-		margin-bottom: 100px;
+		padding: 45px 60px 0 60px;
 
 		h1 {
 
@@ -177,9 +163,7 @@ main {
 
 		p.sub {
 			margin-top: 15px;
-			width: 33.3vw;
-			min-width: 600px;
-
+			max-width: 600px;
 		}
 
 		.catalogo {
@@ -189,86 +173,11 @@ main {
 			padding: 10px 30px;
 			border-radius: 80px;
 			margin-top: 20px;
-			border: 2px solid transparent;
-			transition-duration: .2s;
-
-			&:hover {
-				transition-duration: .2s;
-				border: 2px solid black;
-			}
 		}
 	}
 
-	.division {
-		background: radial-gradient(circle at left, var(--accent) 0, var(--accent-slight) 100%);
-		margin: 20px 40px;
-		border-radius: 40px;
-
-		text-align: center;
+	.sub {
+		color: rgb(81, 81, 81);
+		font-weight: 600;
 	}
-
-	.division h2 {
-		margin-bottom: 2rem;
-		color: #333;
-		font-size: 2rem;
-	}
-
-	.cards-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 2rem;
-		max-width: 1200px;
-		margin: 0 auto;
-	}
-
-	.card {
-		background: white;
-		border-radius: 12px;
-		padding: 1.5rem;
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-		transition: transform 0.3s ease, box-shadow 0.3s ease;
-		text-align: center;
-	}
-
-	.card:hover {
-		transform: translateY(-5px);
-		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-	}
-
-	.card-icon {
-		width: 80px;
-		height: 80px;
-		margin: 0 auto 1rem;
-		border-radius: 50%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		background: linear-gradient(135deg, #f5f5f5, #e8e8e8);
-	}
-
-	.card-icon img {
-		width: 50px;
-		height: 50px;
-		object-fit: contain;
-	}
-
-	.card h3 {
-		margin: 0.5rem 0;
-		color: #222;
-		font-size: 1.25rem;
-	}
-
-	.card p {
-		color: #666;
-		line-height: 1.5;
-		margin: 0;
-	}
-}
-
-.d4 {
-	margin-bottom: 40px;
-}
-
-.strong {
-	font-weight: 700;
 }
