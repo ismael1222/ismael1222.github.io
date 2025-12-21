@@ -208,8 +208,8 @@ main {
 	}
 
 	.cards-grid {
-		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		display: grid;
 		justify-content: center;
 		gap: 2rem;
 		max-width: 1200px;
@@ -223,6 +223,23 @@ main {
 		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 		transition: transform 0.3s ease, box-shadow 0.3s ease;
 		text-align: center;
+	}
+
+	@media (max-width: 400px) {
+		.cards-grid {
+			grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+		}
+
+		.card {
+			h3 {
+				font-size: 0.9rem !important;
+			}
+
+			p {
+
+				font-size: 0.8rem !important;
+			}
+		}
 	}
 
 	.card:hover {
