@@ -1,12 +1,11 @@
 main {
 	padding-bottom: 200px;
 
-
-	>div {
+	&>div {
 		padding: 45px 60px;
 	}
 
-	.legend {
+	& .legend {
 		position: absolute;
 		color: var(--accent);
 		background-color: var(--accent-tame);
@@ -18,7 +17,7 @@ main {
 		margin: 25px 0 0 25px;
 	}
 
-	.carrusel {
+	& .carrusel {
 		position: relative;
 		overflow: hidden;
 		width: 100%;
@@ -26,7 +25,7 @@ main {
 		min-height: 400px;
 		background: #f0f0f0;
 
-		.slide-container {
+		& .slide-container {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -51,7 +50,7 @@ main {
 				z-index: 0;
 			}
 
-			.image-wrapper {
+			& .image-wrapper {
 				position: relative;
 				width: 100%;
 				height: 100%;
@@ -60,7 +59,7 @@ main {
 				justify-content: center;
 				overflow: hidden;
 
-				.display {
+				& .display {
 					max-width: 100%;
 					max-height: 100%;
 					object-fit: contain;
@@ -70,7 +69,7 @@ main {
 					box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 				}
 
-				.image-blur {
+				& .image-blur {
 					position: absolute;
 					top: 0;
 					left: 0;
@@ -85,7 +84,7 @@ main {
 				}
 			}
 
-			.info {
+			& .info {
 				position: absolute;
 				bottom: 0;
 				left: 0;
@@ -95,21 +94,21 @@ main {
 				z-index: 3;
 				color: white;
 
-				.title {
+				& .title {
 					font-size: x-large;
 					font-weight: 600;
 					margin-bottom: 8px;
 					color: white;
 				}
 
-				.description {
+				& .description {
 					font-size: 16px;
 					margin-bottom: 15px;
 					color: rgba(255, 255, 255, 0.9);
 					max-width: 600px;
 				}
 
-				a.info-link {
+				& a.info-link {
 					display: flex;
 					align-items: center;
 					color: white;
@@ -118,7 +117,6 @@ main {
 					width: max-content;
 					text-decoration: none;
 					font-weight: 500;
-
 					transition-duration: .3s;
 
 					&::after {
@@ -135,7 +133,7 @@ main {
 					&:hover {
 						color: var(--accent);
 
-						img {
+						& img {
 							transition-duration: 0.3s;
 							filter: invert(46%) sepia(59%) saturate(575%) hue-rotate(318deg) brightness(95%) contrast(92%);
 						}
@@ -146,7 +144,7 @@ main {
 						}
 					}
 
-					img.icon {
+					& img.icon {
 						width: 20px;
 						height: 20px;
 						margin-right: 10px;
@@ -157,27 +155,23 @@ main {
 		}
 	}
 
-	.sub {
+	& .sub {
 		color: rgb(81, 81, 81);
 		font-weight: 600;
-
-
 	}
 
-	#hacemos {
-
+	& #hacemos {
 		margin-bottom: 100px;
 
-		h1 {
-
+		& h1 {
 			font-size: clamp(2.5rem, 3.25rem, 4rem)
 		}
 
-		p.sub {
+		& p.sub {
 			margin-top: 15px;
 		}
 
-		.catalogo {
+		& .catalogo {
 			background: #25D366;
 			border-width: 0 0 0 0;
 			border-style: solid;
@@ -194,20 +188,20 @@ main {
 		}
 	}
 
-	.division {
+	& .division {
 		background: radial-gradient(circle at left, var(--accent) 0, var(--accent-slight) 100%);
 		margin: 20px 40px;
 		border-radius: 40px;
 		text-align: center;
 	}
 
-	.division h2 {
+	& .division h2 {
 		margin-bottom: 2rem;
 		color: #333;
 		font-size: 2rem;
 	}
 
-	.cards-grid {
+	& .cards-grid {
 		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 		display: grid;
 		justify-content: center;
@@ -216,7 +210,7 @@ main {
 		margin: 0 auto;
 	}
 
-	.card {
+	& .card {
 		background: white;
 		border-radius: 12px;
 		padding: 1.5rem;
@@ -225,29 +219,12 @@ main {
 		text-align: center;
 	}
 
-	@media (max-width: 400px) {
-		.cards-grid {
-			grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-		}
-
-		.card {
-			h3 {
-				font-size: 0.9rem !important;
-			}
-
-			p {
-
-				font-size: 0.8rem !important;
-			}
-		}
-	}
-
-	.card:hover {
+	& .card:hover {
 		transform: translateY(-5px);
 		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 	}
 
-	.card-icon {
+	& .card-icon {
 		width: 80px;
 		height: 80px;
 		margin: 0 auto 1rem;
@@ -258,22 +235,38 @@ main {
 		background: linear-gradient(135deg, #f5f5f5, #e8e8e8);
 	}
 
-	.card-icon img {
+	& .card-icon img {
 		width: 50px;
 		height: 50px;
 		object-fit: contain;
 	}
 
-	.card h3 {
+	& .card h3 {
 		margin: 0.5rem 0;
 		color: #222;
 		font-size: 1.25rem;
 	}
 
-	.card p {
+	& .card p {
 		color: #666;
 		line-height: 1.5;
 		margin: 0;
+	}
+
+	@media (max-width: 400px) {
+		.cards-grid {
+			grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+		}
+
+		.card {
+			& h3 {
+				font-size: 0.9rem !important;
+			}
+
+			& p {
+				font-size: 0.8rem !important;
+			}
+		}
 	}
 }
 

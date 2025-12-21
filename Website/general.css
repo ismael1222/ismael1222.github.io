@@ -27,7 +27,7 @@ header {
 	top: 0;
 	background-color: white;
 
-	.nav {
+	& .nav {
 		max-width: 1200px;
 		padding: 12px 20px;
 		display: flex;
@@ -35,23 +35,22 @@ header {
 		margin: 0 auto;
 		justify-content: space-between;
 
-		.nav-links {
+		& .nav-links {
 			display: flex;
 
-			.element {
+			& .element {
 				margin-left: 30px;
 				display: flex;
 				align-items: center;
 
-				a {
-
+				& a {
 					font-weight: 650;
 				}
 			}
 
 		}
 
-		a.logo {
+		& a.logo {
 			display: flex;
 			font-size: 1.5rem;
 			font-weight: 700;
@@ -62,9 +61,8 @@ header {
 				align-content: center;
 			}
 
-			.logo-icon img {
+			& img {
 				width: 50px;
-
 			}
 
 			.sub {
@@ -82,7 +80,7 @@ header {
 	header .nav .nav-links .element {
 		margin-left: 15px;
 
-		a p {
+		& a p {
 			display: none;
 		}
 	}
@@ -105,7 +103,7 @@ img.icon {
 	padding: 5px;
 	transition-duration: 0.3s;
 
-	img {
+	& img {
 		transition-duration: 0.3s;
 	}
 
@@ -123,7 +121,7 @@ img.icon {
 	&:hover {
 		color: var(--accent);
 
-		img {
+		& img {
 			transition-duration: 0.3s;
 			filter: invert(46%) sepia(59%) saturate(575%) hue-rotate(318deg) brightness(95%) contrast(92%);
 		}
