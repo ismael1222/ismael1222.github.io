@@ -25,7 +25,6 @@ main {
 		height: 87vh;
 		min-height: 400px;
 		background: #f0f0f0;
-		/* Fondo por si acaso */
 
 		.slide-container {
 			position: absolute;
@@ -83,7 +82,6 @@ main {
 					opacity: 0.7;
 					z-index: 1;
 					transform: scale(1.1);
-					/* Aumenta ligeramente para cubrir bordes */
 				}
 			}
 
@@ -177,9 +175,6 @@ main {
 
 		p.sub {
 			margin-top: 15px;
-			width: 33.3vw;
-			min-width: 600px;
-
 		}
 
 		.catalogo {
@@ -203,7 +198,6 @@ main {
 		background: radial-gradient(circle at left, var(--accent) 0, var(--accent-slight) 100%);
 		margin: 20px 40px;
 		border-radius: 40px;
-
 		text-align: center;
 	}
 
@@ -216,6 +210,7 @@ main {
 	.cards-grid {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		justify-content: center;
 		gap: 2rem;
 		max-width: 1200px;
 		margin: 0 auto;
