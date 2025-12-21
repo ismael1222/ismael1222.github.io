@@ -78,8 +78,15 @@ header {
 }
 
 @media (max-width: 600px) {
-	header .nav .nav-links .element a p {
+	.logo .texto {
 		display: none;
+	}
+
+	header .nav .nav-links .element {
+		margin-left: 15px;
+		a p {
+			display: none;
+		}
 	}
 }
 
