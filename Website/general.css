@@ -79,16 +79,18 @@ header {
 }
 
 @media (max-width: 600px) {
-	.logo .texto {
-		display: none;
-	}
-
 	header .nav .nav-links .element {
 		margin-left: 15px;
 
 		a p {
 			display: none;
 		}
+	}
+}
+
+@media (max-width:420px) {
+	.logo .texto {
+		display: none;
 	}
 }
 
