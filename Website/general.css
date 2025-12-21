@@ -138,6 +138,7 @@ img.icon {
 	display: inline-flex;
 	align-items: center;
 }
-.inv{
-	opacity: 0!important;
+
+.inv {
+	opacity: 0 !important;
 }
