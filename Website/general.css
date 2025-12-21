@@ -59,6 +59,7 @@ header {
 
 			&>div {
 				margin-left: 15px;
+				align-content: center;
 			}
 
 			.logo-icon img {
@@ -84,6 +85,7 @@ header {
 
 	header .nav .nav-links .element {
 		margin-left: 15px;
+
 		a p {
 			display: none;
 		}
