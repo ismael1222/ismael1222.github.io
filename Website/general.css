@@ -7,7 +7,14 @@
 * {
 	margin: 0;
 	padding: 0;
+	box-sizing: border-box;
 	max-width: 100vw;
+}
+
+html {
+	scroll-behavior: smooth;
+	
+	text-align: center;
 }
 
 body {
@@ -20,69 +27,68 @@ a {
 	text-decoration: none;
 }
 
+/* Header */
 header {
 	box-shadow: 0px -3px 20px rgba(0, 0, 0, 0.316);
 	position: sticky;
 	z-index: 101;
 	top: 0;
 	background-color: white;
+}
 
-	& .nav {
-		max-width: 1200px;
-		padding: 12px 20px;
-		display: flex;
-		align-items: center;
-		margin: 0 auto;
-		justify-content: space-between;
+.nav {
+	max-width: 1200px;
+	padding: 12px 20px;
+	display: flex;
+	align-items: center;
+	margin: 0 auto;
+	justify-content: space-between;
+}
 
-		& .nav-links {
-			display: flex;
+.nav-links {
+	display: flex;
+}
 
-			& .element {
-				margin-left: 30px;
-				display: flex;
-				align-items: center;
+.nav-links .element {
+	margin-left: 30px;
+	display: flex;
+	align-items: center;
+}
 
-				& a {
-					font-weight: 650;
-				}
-			}
+.nav-links .element a {
+	font-weight: 650;
+}
 
-		}
+a.logo {
+	display: flex;
+	font-size: 1.5rem;
+	font-weight: 700;
+	color: #E55E64;
+}
 
-		& a.logo {
-			display: flex;
-			font-size: 1.5rem;
-			font-weight: 700;
-			color: #E55E64;
+a.logo>div {
+	margin-left: 15px;
+	align-content: center;
+}
 
-			&>div {
-				margin-left: 15px;
-				align-content: center;
-			}
+a.logo img {
+	width: 50px;
+}
 
-			& img {
-				width: 50px;
-			}
-
-			.sub {
-				color: grey;
-				font-weight: 500;
-				font-size: 0.75rem;
-				line-height: 1.5;
-			}
-		}
-	}
-
+.sub {
+	color: grey;
+	font-weight: 500;
+	font-size: 0.75rem;
+	line-height: 1.5;
 }
 
 @media (max-width: 600px) {
-	header .nav .nav-links .element {
+	.nav-links .element {
 		margin-left: 15px;
+	}
 
-		& a p {
-			display: none;
-		}
+	.nav-links .element a p {
+		display: none;
 	}
 }
 
@@ -102,35 +108,35 @@ img.icon {
 	position: relative;
 	padding: 5px;
 	transition-duration: 0.3s;
+}
 
-	& img {
-		transition-duration: 0.3s;
-	}
+.underline img {
+	transition-duration: 0.3s;
+}
 
-	&::after {
-		content: "";
-		position: absolute;
-		left: 0;
-		bottom: 0;
-		width: 0;
-		height: 2px;
-		background: black;
-		transition: width .3s;
-	}
+.underline::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 0;
+	height: 2px;
+	background: black;
+	transition: width .3s;
+}
 
-	&:hover {
-		color: var(--accent);
+.underline:hover {
+	color: var(--accent);
+}
 
-		& img {
-			transition-duration: 0.3s;
-			filter: invert(46%) sepia(59%) saturate(575%) hue-rotate(318deg) brightness(95%) contrast(92%);
-		}
+.underline:hover img {
+	transition-duration: 0.3s;
+	filter: invert(46%) sepia(59%) saturate(575%) hue-rotate(318deg) brightness(95%) contrast(92%);
+}
 
-		&::after {
-			background-color: #E55E64;
-			width: 100%;
-		}
-	}
+.underline:hover::after {
+	background-color: #E55E64;
+	width: 100%;
 }
 
 .svg {
@@ -141,4 +147,102 @@ img.icon {
 
 .inv {
 	opacity: 0 !important;
+}
+
+/* Botones */
+.boton {
+	transition-duration: .2s;
+	border-radius: 80px;
+	padding: 10px 30px;
+	margin-top: 20px;
+	border: 2px solid transparent;
+	text-decoration: none;
+}
+
+.wsp {
+	background: #25D366 !important;
+}
+
+.wsp:hover {
+	transition-duration: .2s;
+	border: 2px solid black;
+}
+
+.card .boton {
+	background: var(--accent-tame);
+	color: black;
+	padding: 0.75rem 1.5rem;
+	border-radius: 6px;
+	text-decoration: none;
+	margin-top: auto;
+	display: inline-block;
+}
+
+.card .boton:hover {
+	background: var(--accent);
+}
+
+.card h3 {
+	margin: 0.5rem 0;
+	color: #222;
+	font-size: 1.25rem;
+}
+
+.card p {
+	color: #666;
+	line-height: 1.5;
+	margin: 0 0 1rem 0;
+	flex-grow: 1;
+}
+
+.cards-grid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	/* Esto centra las cards horizontalmente */
+	gap: 2rem;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.card {
+	background: white;
+	border-radius: 10px;
+	padding: 15px;
+	flex: 0 1 350px;
+	/* No crece, puede encoger, base de 350px */
+	min-width: 250px;
+	max-width: 350px;
+}
+.card-icon {
+	width: 80px;
+	height: 80px;
+	margin: 0 auto 1rem;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(135deg, #f5f5f5, #e8e8e8);
+}
+.card-icon img {
+	width: 50px;
+	height: 50px;
+	object-fit: contain;
+}
+
+.card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+@media (max-width: 1000px) {
+	.card {
+		flex-basis: calc(50% - 1rem);
+		max-width: none;
+	}
+}
+@media (max-width: 719px) {
+	.card {
+		flex-basis: 100%;
+		max-width: 400px;
+	}
 }

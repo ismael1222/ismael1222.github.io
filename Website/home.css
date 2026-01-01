@@ -1,295 +1,61 @@
 main {
 	padding-bottom: 200px;
+}
 
+/* Sección Hacemos */
+#hacemos {
+	margin-bottom: 100px;
+}
 
+#hacemos h1 {
+	font-size: clamp(2.5rem, 3.25rem, 4rem);
+}
 
-	& .legend {
-		position: absolute;
-		color: var(--accent);
-		background-color: var(--accent-tame);
-		font-weight: 700;
-		width: max-content;
-		padding: 6px 12px;
-		border-radius: 20px;
-		z-index: 4;
-		margin: 25px 0 0 25px;
-	}
+#hacemos p.sub {
+	margin-top: 15px;
+}
 
-	& .carrusel {
-		position: relative;
-		overflow: hidden;
-		width: 100%;
-		height: 87vh;
-		min-height: 400px;
-		background: #f0f0f0;
+/* Division */
+.division {
+	background: radial-gradient(circle at left, var(--accent) 0, var(--accent-slight) 100%);
+	margin: 20px 40px;
+	border-radius: 40px;
+	padding: 60px 20px;
+}
 
-		& .slide-container {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
-			opacity: 0;
-			transform: translateX(100%);
-			transition: all 1s ease;
-			pointer-events: none;
-			z-index: 1;
+.division h2 {
+	margin-bottom: 2rem;
+	color: #333;
+	font-size: 2rem;
+}
 
-			&.active {
-				opacity: 1;
-				transform: translateX(0%);
-				z-index: 2;
-				pointer-events: auto;
-			}
+/* Ajustes de padding para secciones */
+main > div {
+	padding: 45px 60px;
+}
 
-			&.post {
-				opacity: 0;
-				transform: translateX(-100%);
-				z-index: 0;
-			}
-
-			& .image-wrapper {
-				position: relative;
-				width: 100%;
-				height: 100%;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				overflow: hidden;
-
-				& .display {
-					max-width: 100%;
-					max-height: 100%;
-					object-fit: contain;
-					position: relative;
-					z-index: 2;
-					border-radius: 4px;
-					box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-				}
-
-				& .image-blur {
-					position: absolute;
-					top: 0;
-					left: 0;
-					width: 100%;
-					height: 100%;
-					background-size: cover;
-					background-position: center;
-					filter: blur(20px) brightness(1.1);
-					opacity: 0.7;
-					z-index: 1;
-					transform: scale(1.1);
-				}
-			}
-
-			& .info {
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				width: 100%;
-				background: linear-gradient(45deg, rgba(0, 0, 0, 0.8), transparent);
-				padding: 20px 30px;
-				z-index: 3;
-				color: white;
-
-				& .title {
-					font-size: x-large;
-					font-weight: 600;
-					margin-bottom: 8px;
-					color: white;
-				}
-
-				& .description {
-					font-size: 16px;
-					margin-bottom: 15px;
-					color: rgba(255, 255, 255, 0.9);
-					max-width: 600px;
-				}
-
-				& a.info-link {
-					display: flex;
-					align-items: center;
-					color: white;
-					padding: 10px 0;
-					position: relative;
-					width: max-content;
-					text-decoration: none;
-					font-weight: 500;
-					transition-duration: .3s;
-
-					&::after {
-						content: "";
-						position: absolute;
-						left: 0;
-						bottom: 0;
-						width: 0;
-						height: 2px;
-						background: white;
-						transition: width .3s;
-					}
-
-					&:hover {
-						color: var(--accent);
-
-						& img {
-							transition-duration: 0.3s;
-							filter: invert(46%) sepia(59%) saturate(575%) hue-rotate(318deg) brightness(95%) contrast(92%);
-						}
-
-						&::after {
-							background-color: var(--accent);
-							width: 100%;
-						}
-					}
-
-					& img.icon {
-						width: 20px;
-						height: 20px;
-						margin-right: 10px;
-						filter: invert(1);
-					}
-				}
-			}
-		}
-	}
-
-	& .sub {
-		color: rgb(81, 81, 81);
-		font-weight: 600;
-	}
-
-	& #hacemos {
-		margin-bottom: 100px;
-
-		& h1 {
-			font-size: clamp(2.5rem, 3.25rem, 4rem)
-		}
-
-		& p.sub {
-			margin-top: 15px;
-		}
-
-		& .catalogo {
-			background: #25D366;
-			border-width: 0 0 0 0;
-			border-style: solid;
-			padding: 10px 30px;
-			border-radius: 80px;
-			margin-top: 20px;
-			border: 2px solid transparent;
-			transition-duration: .2s;
-
-			&:hover {
-				transition-duration: .2s;
-				border: 2px solid black;
-			}
-		}
-	}
-
-	& .division {
-		background: radial-gradient(circle at left, var(--accent) 0, var(--accent-slight) 100%);
-		margin: 20px 40px;
-		border-radius: 40px;
-		text-align: center;
-	}
-
-	& .division h2 {
-		margin-bottom: 2rem;
-		color: #333;
-		font-size: 2rem;
-	}
-
-	& .cards-grid {
-		align-items: center;
-		justify-content: center;
-		display: grid;
-		gap: 2rem;
-		max-width: 1200px;
-		margin: 0 auto;
-	}
-
-	& .card {
-		background: white;
-		border-radius: 12px;
-		padding: 1.5rem;
-		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-		transition: transform 0.3s ease, box-shadow 0.3s ease;
-		text-align: center;
-		height: 90%;
-	}
-
-	& .card:hover {
-		transform: translateY(-5px);
-		box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-	}
-
-	& .card-icon {
-		width: 80px;
-		height: 80px;
-		margin: 0 auto 1rem;
-		border-radius: 50%;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		background: linear-gradient(135deg, #f5f5f5, #e8e8e8);
-	}
-
-	& .card-icon img {
-		width: 50px;
-		height: 50px;
-		object-fit: contain;
-	}
-
-	& .card h3 {
-		margin: 0.5rem 0;
-		color: #222;
-		font-size: 1.25rem;
-	}
-
-	& .card p {
-		color: #666;
-		line-height: 1.5;
-		margin: 0;
-	}
-
-	@media (max-width: 719px) {
-		.cards-grid {
-			grid-template-columns: repeat(1, 1fr);
-
-		}
-
-		>div {
-			padding: 45px 20px;
-		}
-	}
-
-	@media (max-width: 1000px) and (min-width:720px) {
-		.cards-grid {
-			grid-template-columns: repeat(2, 1fr);
-			grid-auto-rows: 1fr;
-		}
-
-		>div {
-			padding: 45px 40px;
-		}
-	}
-
-	@media (min-width: 1001px) {
-		.cards-grid {
-			grid-template-columns: repeat(3, minmax(100px, 500px));
-			grid-auto-rows: 1fr;
-		}
-
-		>div {
-			padding: 45px 60px;
-		}
+@media (max-width: 719px) {
+	main > div {
+		padding: 45px 20px;
 	}
 }
 
+@media (max-width: 1000px) and (min-width:720px) {
+	main > div {
+		padding: 45px 40px;
+	}
+}
+
+/* Clases utilitarias */
 .d4 {
 	margin-bottom: 40px;
 }
 
 .strong {
 	font-weight: 700;
+}
+
+.sub {
+	color: rgb(81, 81, 81);
+	font-weight: 600;
 }

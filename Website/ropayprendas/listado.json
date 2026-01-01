@@ -1,0 +1,44 @@
+[
+	{
+		"producto": "Jeans",
+		"texto": "whatsappTexto",
+		"descripcion": "descripcion",
+		"fotoUrl": "https://randommer.io/images/clothes/Jeans.webp"
+	},
+	{
+		"producto": "Cargos",
+		"texto": "whatsappTexto",
+		"descripcion": "descripcion",
+		"fotoUrl": "https://randommer.io/images/clothes/Cargos.webp"
+	},
+	{
+		"producto": "Sandals",
+		"texto": "whatsappTexto",
+		"descripcion": "descripcion",
+		"fotoUrl": "https://randommer.io/images/clothes/Sandals.webp"
+	},
+	{
+		"producto": "Top hat",
+		"texto": "whatsappTexto",
+		"descripcion": "descripcion",
+		"fotoUrl": "https://randommer.io/images/clothes/Top%20Hat.webp"
+	},
+	{
+		"producto": "Flannel Shirt",
+		"texto": "whatsappTexto",
+		"descripcion": "descripcion",
+		"fotoUrl": "https://randommer.io/images/clothes/Flannel%20Shirt.webp"
+	},
+	{
+		"producto": "Referee uniform",
+		"texto": "whatsappTexto",
+		"descripcion": "descripcion",
+		"fotoUrl": "https://randommer.io/images/clothes/Referee%20Uniform.webp"
+	},
+	{
+		"producto": "Shirt",
+		"texto": "whatsappTexto",
+		"descripcion": "descripcion",
+		"fotoUrl": "https://randommer.io/images/clothes/Shirt.webp"
+	}
+]
