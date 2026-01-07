@@ -2,17 +2,23 @@ function createCard(name, desc, url, text) {
 	var card = document.createElement("div");
 	var cardIcon = document.createElement("div");
 	var cardIconImage = document.createElement("img");
-	var cardName = document.createElement("h3");
+	var cardName = document.createElement("h4");
 	var cardDesc = document.createElement("p");
 	var cardButton = document.createElement("a");
+	var cardDivision = document.createElement("div");
+	var centerer = document.createElement("center");
+
 	cardIcon.appendChild(cardIconImage);
 	card.appendChild(cardIcon);
-	card.appendChild(cardName);
-	card.appendChild(cardDesc);
-	card.appendChild(cardButton);
-	console.log(name, desc, url, text);
+	centerer.appendChild(cardDivision);
+	card.appendChild(centerer);
+	cardDivision.appendChild(cardName);
+	cardDivision.appendChild(cardDesc);
+	cardDivision.appendChild(cardButton);
+
 	card.classList.add("card");
-	cardIcon.classList.add("card-icon");
+	cardDivision.classList.add("card-content");
+	cardIcon.classList.add("card-image");
 	cardIconImage.src = url || "";
 	cardIconImage.alt = name || "unknownImageName";
 	cardName.innerText = name || "unknownName";
