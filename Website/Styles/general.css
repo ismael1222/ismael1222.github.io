@@ -13,13 +13,12 @@
 
 html {
 	scroll-behavior: smooth;
-	
 	text-align: center;
 }
 
 body {
-	background-color: #F8FAFC;
-	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	background-color: #f8fafc;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 	overflow-x: hidden;
 }
 
@@ -63,10 +62,10 @@ a.logo {
 	display: flex;
 	font-size: 1.5rem;
 	font-weight: 700;
-	color: #E55E64;
+	color: #e55e64;
 }
 
-a.logo>div {
+a.logo > div {
 	margin-left: 15px;
 	align-content: center;
 }
@@ -92,7 +91,7 @@ a.logo img {
 	}
 }
 
-@media (max-width:420px) {
+@media (max-width: 420px) {
 	.logo .texto {
 		display: none;
 	}
@@ -122,7 +121,7 @@ img.icon {
 	width: 0;
 	height: 2px;
 	background: black;
-	transition: width .3s;
+	transition: width 0.3s;
 }
 
 .underline:hover {
@@ -131,11 +130,12 @@ img.icon {
 
 .underline:hover img {
 	transition-duration: 0.3s;
-	filter: invert(46%) sepia(59%) saturate(575%) hue-rotate(318deg) brightness(95%) contrast(92%);
+	filter: invert(46%) sepia(59%) saturate(575%) hue-rotate(318deg)
+		brightness(95%) contrast(92%);
 }
 
 .underline:hover::after {
-	background-color: #E55E64;
+	background-color: #e55e64;
 	width: 100%;
 }
 
@@ -151,7 +151,7 @@ img.icon {
 
 /* Botones */
 .boton {
-	transition-duration: .2s;
+	transition-duration: 0.2s;
 	border-radius: 80px;
 	padding: 10px 30px;
 	margin-top: 20px;
@@ -160,11 +160,11 @@ img.icon {
 }
 
 .wsp {
-	background: #25D366 !important;
+	background: #25d366 !important;
 }
 
 .wsp:hover {
-	transition-duration: .2s;
+	transition-duration: 0.2s;
 	border: 2px solid black;
 }
 

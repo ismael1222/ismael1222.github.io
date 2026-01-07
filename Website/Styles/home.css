@@ -40,7 +40,7 @@ main > div {
 	}
 }
 
-@media (max-width: 1000px) and (min-width:720px) {
+@media (max-width: 1000px) and (min-width: 720px) {
 	main > div {
 		padding: 45px 40px;
 	}
