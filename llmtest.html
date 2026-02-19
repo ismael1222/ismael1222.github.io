@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🍵 llm chat · simple send, cookies, model list</title>
+    <title>see responses etc</title>
     <style>
         * {
             box-sizing: border-box;
@@ -261,7 +261,7 @@
             </label>
             <label class="base-url-field">
                 🌐 Base URL
-                <input type="url" id="baseUrlInput" value="https://api.openai.com/v1" placeholder="https://...">
+                <input type="url" id="baseUrlInput" value="https://api.routeway.ai" placeholder="https://...">
             </label>
         </div>
         <div class="row">
@@ -351,7 +351,7 @@
                 if (encodedKey) {
                     apiKeyInput.value = decodeKey(encodedKey) || '';
                 }
-                baseUrlInput.value = getCookie('baseUrl') || 'https://api.openai.com/v1';
+                baseUrlInput.value = getCookie('baseUrl') || 'https://api.routeway.ai';
                 const savedModel = getCookie('model');
                 const savedFreeFilter = getCookie('freeFilter');
                 freeFilterCheckbox.checked = savedFreeFilter === 'true';
