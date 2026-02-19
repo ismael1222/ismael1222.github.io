@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍵 llm chat · simple send, cookies, model list</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: white;
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .settings-panel {
+            background: #f4f6f9;
+            border-radius: 24px;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+            margin-bottom: 2rem;
+            border: 1px solid #e9ecf0;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 1.5rem;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .row label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            color: #1e2b3c;
+        }
+
+        input,
+        select {
+            padding: 0.6rem 1rem;
+            border-radius: 40px;
+            border: 1px solid #ccd7e4;
+            background: white;
+            font-size: 0.95rem;
+            min-width: 240px;
+            transition: 0.15s;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #3b6ea5;
+            box-shadow: 0 0 0 3px rgba(59, 110, 165, 0.15);
+        }
+
+        .api-key-field {
+            flex: 2;
+            min-width: 280px;
+        }
+
+        .base-url-field {
+            flex: 2;
+            min-width: 280px;
+        }
+
+        .timeout-field {
+            min-width: 120px;
+        }
+
+        .timeout-field input {
+            min-width: 80px;
+            width: 100px;
+        }
+
+        button {
+            background: #1e2b3c;
+            border: none;
+            color: white;
+            font-weight: 500;
+            padding: 0.6rem 1.6rem;
+            border-radius: 40px;
+            font-size: 0.95rem;
+            cursor: pointer;
+            border: 1px solid #14222e;
+            transition: 0.1s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            white-space: nowrap;
+        }
+
+        button:hover {
+            background: #2b3e55;
+        }
+
+        button:active {
+            background: #14222e;
+        }
+
+        .model-refresh {
+            background: #e5eaef;
+            color: #1e2b3c;
+            border: 1px solid #cbd5e1;
+        }
+
+        .model-refresh:hover {
+            background: #d0dbe8;
+        }
+
+        .send-btn {
+            background: #2a5f3a;
+            border-color: #1d4628;
+            padding: 0.7rem 2.2rem;
+            font-size: 1.1rem;
+        }
+
+        .send-btn:hover {
+            background: #347a47;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-left: auto;
+        }
+
+        .checkbox-item input {
+            min-width: auto;
+            width: 1.2rem;
+            height: 1.2rem;
+            margin: 0;
+        }
+
+        /* log area */
+        .log-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin: 0 0 0.75rem 0.5rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .log-title h2 {
+            font-size: 1.4rem;
+            font-weight: 450;
+            color: #1a2938;
+            margin: 0;
+        }
+
+        .log-actions {
+            display: flex;
+            gap: 0.75rem;
+        }
+
+        .clear-log {
+            background: transparent;
+            color: #5e6f82;
+            border: 1px solid #bac8d9;
+            padding: 0.25rem 1rem;
+            font-size: 0.85rem;
+            box-shadow: none;
+        }
+
+        .log-container {
+            background: #f0f3f7;
+            border-radius: 26px;
+            padding: 1.8rem 1.5rem;
+            border: 1px solid #dde3ea;
+            height: 420px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        /* individual log cards */
+        .log-card {
+            background: #fafcfd;
+            border: 1px solid #d7e0e8;
+            border-radius: 22px;
+            padding: 1rem 1.5rem 1rem 1.8rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.01);
+            transition: 0.1s;
+        }
+
+        .log-card:hover {
+            background: #ffffff;
+            border-color: #b5c8db;
+        }
+
+        .log-content {
+            flex: 1;
+            font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            word-break: break-word;
+            color: #1b2a3f;
+            max-height: 300px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            padding-right: 0.5rem;
+        }
+
+        .copy-btn {
+            background: #e1e8f0;
+            border: 1px solid #b9cbdf;
+            color: #1e2b3c;
+            font-size: 0.75rem;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: 0.1s;
+            white-space: nowrap;
+            box-shadow: none;
+            align-self: center;
+        }
+
+        .copy-btn:hover {
+            background: #d2deec;
+            border-color: #8aa5c2;
+        }
+
+        .copy-btn:active {
+            background: #b3c6dd;
+        }
+
+        .empty-log-msg {
+            color: #6d7f94;
+            text-align: center;
+            padding: 2rem;
+            font-style: italic;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px dotted #c0cedf;
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="settings-panel">
+        <div class="row">
+            <label class="api-key-field">
+                🔑 API key
+                <input type="password" id="apiKeyInput" placeholder="" autocomplete="off">
+            </label>
+            <label class="base-url-field">
+                🌐 Base URL
+                <input type="url" id="baseUrlInput" value="https://api.openai.com/v1" placeholder="https://...">
+            </label>
+        </div>
+        <div class="row">
+            <label style="min-width: 200px;">
+                🤖 Model
+                <select id="modelSelect" style="min-width: 180px;">
+                    <option value="">— load models —</option>
+                </select>
+            </label>
+            <button id="refreshModelsBtn" class="model-refresh">⟳ refresh models</button>
+            <label class="checkbox-item">
+                <input type="checkbox" id="freeFilterCheckbox"> only :free models
+            </label>
+        </div>
+        <div class="row">
+            <label class="timeout-field">
+                ⏱️ Timeout (s)
+                <input type="number" id="timeoutInput" min="1" max="60" value="15" step="1">
+            </label>
+            <div style="flex:1;"></div> <!-- spacer -->
+        </div>
+        <div class="row" style="margin-bottom: 0;">
+            <label style="flex: 1; min-width: 300px;">
+                💬 your prompt
+                <input type="text" id="promptInput" placeholder="e.g. tell me a haiku about coffee"
+                    style="width: 100%;">
+            </label>
+            <button id="sendBtn" class="send-btn">⬆ send</button>
+        </div>
+    </div>
+
+    <div class="log-title">
+        <h2>📋 response log (scrollable, each card has copy)</h2>
+        <div class="log-actions">
+            <button id="clearLogBtn" class="clear-log">clear log</button>
+        </div>
+    </div>
+    <div id="logContainer" class="log-container">
+        <div class="empty-log-msg">✨ responses and errors will appear here</div>
+    </div>
+
+    <script>
+        (function () {
+            // --- DOM elements ---
+            const apiKeyInput = document.getElementById('apiKeyInput');
+            const baseUrlInput = document.getElementById('baseUrlInput');
+            const modelSelect = document.getElementById('modelSelect');
+            const promptInput = document.getElementById('promptInput');
+            const refreshModelsBtn = document.getElementById('refreshModelsBtn');
+            const sendBtn = document.getElementById('sendBtn');
+            const logContainer = document.getElementById('logContainer');
+            const clearLogBtn = document.getElementById('clearLogBtn');
+            const freeFilterCheckbox = document.getElementById('freeFilterCheckbox');
+            const timeoutInput = document.getElementById('timeoutInput');
+
+            // --- cookie helpers ---
+            function setCookie(name, value, days = 400) {
+                const d = new Date();
+                d.setTime(d.getTime() + (days * 24 * 60 * 60 * 1000));
+                document.cookie = `${encodeURIComponent(name)}=${encodeURIComponent(value)}; expires=${d.toUTCString()}; path=/; SameSite=Lax`;
+            }
+
+            function getCookie(name) {
+                const cookies = document.cookie.split('; ');
+                for (let c of cookies) {
+                    const [key, val] = c.split('=');
+                    if (decodeURIComponent(key) === name) return decodeURIComponent(val);
+                }
+                return null;
+            }
+
+            function encodeKey(raw) { return btoa(raw); }
+            function decodeKey(encoded) { try { return atob(encoded); } catch { return ''; } }
+
+            function saveSettings() {
+                const rawKey = apiKeyInput.value;
+                const encoded = rawKey ? encodeKey(rawKey) : '';
+                setCookie('apiKey_b64', encoded);
+                setCookie('baseUrl', baseUrlInput.value);
+                setCookie('model', modelSelect.value);
+                setCookie('freeFilter', freeFilterCheckbox.checked ? 'true' : 'false');
+                setCookie('timeout', timeoutInput.value);
+            }
+
+            function loadSettings() {
+                const encodedKey = getCookie('apiKey_b64');
+                if (encodedKey) {
+                    apiKeyInput.value = decodeKey(encodedKey) || '';
+                }
+                baseUrlInput.value = getCookie('baseUrl') || 'https://api.openai.com/v1';
+                const savedModel = getCookie('model');
+                const savedFreeFilter = getCookie('freeFilter');
+                freeFilterCheckbox.checked = savedFreeFilter === 'true';
+                const savedTimeout = getCookie('timeout');
+                if (savedTimeout) timeoutInput.value = savedTimeout;
+                else timeoutInput.value = '15';
+                return savedModel;
+            }
+
+            // --- generic fetch with dynamic timeout ---
+            async function fetchWithTimeout(url, options, timeoutMs = null) {
+                if (timeoutMs === null) {
+                    timeoutMs = parseInt(timeoutInput.value, 10) * 1000;
+                }
+                const controller = new AbortController();
+                const id = setTimeout(() => controller.abort(), timeoutMs);
+                try {
+                    const response = await fetch(url, {
+                        ...options,
+                        signal: controller.signal
+                    });
+                    clearTimeout(id);
+                    return response;
+                } catch (error) {
+                    clearTimeout(id);
+                    if (error.name === 'AbortError') {
+                        throw new Error(`Request timeout after ${timeoutMs / 1000}s`);
+                    }
+                    throw error;
+                }
+            }
+
+            // --- add a normal log entry (for simple messages) ---
+            function addLogEntry(textContent, isSuccess = false) {
+                if (logContainer.children.length === 1 && logContainer.children[0].classList.contains('empty-log-msg')) {
+                    logContainer.innerHTML = '';
+                }
+                const card = document.createElement('div');
+                card.className = 'log-card';
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'log-content';
+                let displayText = textContent;
+                if (isSuccess && !textContent.includes('<ANSWERED>')) {
+                    displayText = '<ANSWERED>\n' + textContent;
+                }
+                contentDiv.textContent = displayText;
+                const copyBtn = document.createElement('button');
+                copyBtn.className = 'copy-btn';
+                copyBtn.textContent = '📋 copy';
+                copyBtn.addEventListener('click', async () => {
+                    try {
+                        await navigator.clipboard.writeText(contentDiv.textContent);
+                        copyBtn.textContent = '✅ copied!';
+                        setTimeout(() => { copyBtn.textContent = '📋 copy'; }, 1200);
+                    } catch (err) {
+                        alert('Copy failed');
+                    }
+                });
+                card.appendChild(contentDiv);
+                card.appendChild(copyBtn);
+                logContainer.appendChild(card);
+                logContainer.scrollTop = logContainer.scrollHeight;
+            }
+
+            // --- fetch models ---
+            async function fetchModels() {
+                const baseUrl = baseUrlInput.value.trim().replace(/\/$/, '');
+                const apiKey = apiKeyInput.value.trim();
+                if (!baseUrl || !apiKey) {
+                    addLogEntry('⚠️ both Base URL and API key are needed to fetch models');
+                    return;
+                }
+                const url = `${baseUrl}/models`;
+                try {
+                    const resp = await fetchWithTimeout(url, {
+                        headers: { 'Authorization': `Bearer ${apiKey}` }
+                    });
+                    if (!resp.ok) {
+                        let errorText = '';
+                        try { errorText = JSON.stringify(await resp.json(), null, 2); } catch { errorText = await resp.text(); }
+                        throw new Error(`HTTP ${resp.status}: ${errorText.slice(0, 300)}`);
+                    }
+                    const data = await resp.json();
+                    let models = data.data || (data.models || []);
+                    if (!Array.isArray(models)) models = [];
+
+                    modelSelect.innerHTML = '<option value="">— select model —</option>';
+                    let filteredModels = models.filter(m => m.available === true);
+                    if (freeFilterCheckbox.checked) {
+                        filteredModels = filteredModels.filter(m => {
+                            const id = m.id || m.name || m;
+                            return typeof id === 'string' && id.endsWith(':free');
+                        });
+                    }
+                    filteredModels.sort((a, b) => {
+                        const idA = (a.id || a.name || a).toLowerCase();
+                        const idB = (b.id || b.name || b).toLowerCase();
+                        return idA.localeCompare(idB);
+                    });
+                    filteredModels.forEach(m => {
+                        const id = m.id || m.name || m;
+                        if (typeof id === 'string') {
+                            const opt = document.createElement('option');
+                            opt.value = id;
+                            opt.textContent = id;
+                            modelSelect.appendChild(opt);
+                        }
+                    });
+                    const savedModel = getCookie('model');
+                    if (savedModel && [...modelSelect.options].some(opt => opt.value === savedModel)) {
+                        modelSelect.value = savedModel;
+                    }
+                    addLogEntry(`✅ loaded ${modelSelect.options.length - 1} models`);
+                } catch (err) {
+                    addLogEntry(`❌ models fetch error: ${err.message}`);
+                }
+            }
+
+            // --- send chat ---
+            async function sendChat() {
+                const baseUrl = baseUrlInput.value.trim().replace(/\/$/, '');
+                const apiKey = apiKeyInput.value.trim();
+                const model = modelSelect.value;
+                const prompt = promptInput.value.trim();
+                if (!baseUrl || !apiKey || !model || !prompt) {
+                    addLogEntry('⚠️ missing api key, base url, model or prompt');
+                    return;
+                }
+                const url = `${baseUrl}/chat/completions`;
+                const body = {
+                    model: model,
+                    messages: [{ role: 'user', content: prompt }],
+                    stream: false
+                };
+                try {
+                    const resp = await fetchWithTimeout(url, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${apiKey}`
+                        },
+                        body: JSON.stringify(body)
+                    });
+
+                    const contentType = resp.headers.get('content-type') || '';
+                    let responseData;
+                    if (contentType.includes('application/json')) {
+                        responseData = await resp.json();
+                    } else {
+                        responseData = { raw: await resp.text() };
+                    }
+                    if (!resp.ok) {
+                        const errorStr = typeof responseData === 'object' ? JSON.stringify(responseData, null, 2) : String(responseData);
+                        addLogEntry(`❌ error ${resp.status}:\n${errorStr}`);
+                    } else {
+                        const pretty = JSON.stringify(responseData, null, 2);
+                        addLogEntry(pretty, true);
+                    }
+                } catch (err) {
+                    addLogEntry(`🌐 network / timeout error: ${err.message}`);
+                }
+            }
+
+            // --- Event listeners ---
+            [apiKeyInput, baseUrlInput, modelSelect, freeFilterCheckbox, timeoutInput].forEach(el => {
+                el.addEventListener('input', saveSettings);
+                el.addEventListener('change', saveSettings);
+            });
+            modelSelect.addEventListener('change', saveSettings);
+
+            freeFilterCheckbox.addEventListener('change', () => {
+                if (baseUrlInput.value.trim() && apiKeyInput.value.trim()) {
+                    fetchModels().catch(console.warn);
+                }
+            });
+
+            const savedModelVal = loadSettings();
+            if (baseUrlInput.value.trim() && apiKeyInput.value.trim()) {
+                fetchModels().then(() => { }).catch(console.warn);
+            }
+
+            refreshModelsBtn.addEventListener('click', fetchModels);
+            sendBtn.addEventListener('click', sendChat);
+            promptInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    sendBtn.click();
+                }
+            });
+            clearLogBtn.addEventListener('click', () => {
+                logContainer.innerHTML = '<div class="empty-log-msg">✨ log cleared</div>';
+            });
+
+            apiKeyInput.addEventListener('blur', saveSettings);
+            baseUrlInput.addEventListener('blur', saveSettings);
+        })();
+    </script>
+</body>
+
+</html>
